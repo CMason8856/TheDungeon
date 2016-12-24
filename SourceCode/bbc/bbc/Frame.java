@@ -14,12 +14,12 @@ import javax.swing.JPanel;
  *
  * @author Bryce
  */
-public class Frame extends JFrame implements KeyListener{
+public class Frame extends JFrame implements KeyListener {
+
     private JPanel frame;
     JPanel p = Panel.getCurrentPanel();
-        
-    public Frame()
-    {
+
+    public Frame() {
         super();
         frame = new Panel();
         add(frame);
@@ -27,26 +27,26 @@ public class Frame extends JFrame implements KeyListener{
         addKeyListener(this);
         repaint();
     }
-    
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         Frame window = new Frame();
         window.setDefaultCloseOperation(Frame.EXIT_ON_CLOSE);
         window.setVisible(true);
         window.setTitle("BBC");
-        
-        
-         }
-    
+
+    }
+
     @Override
     /**
      * Repaint an object (the player)
      */
-    public void repaint()
-    { super.repaint(); }
-   
+    public void repaint() {
+        super.repaint();
+    }
+
     /**
      * Key pressed events
+     *
      * @param ke - the current key event
      */
     public void keyPressed(KeyEvent ke) {
@@ -57,15 +57,19 @@ public class Frame extends JFrame implements KeyListener{
     @Override
     /**
      * Key typed event
+     *
      * @param ke - the current key event
      */
-    public void keyTyped(KeyEvent ke) {}
+    public void keyTyped(KeyEvent ke) {
+    }
 
     @Override
     /**
      * Key Released event
+     *
      * @param ke - the current key event
      */
-    public void keyReleased(KeyEvent ke) {}
+    public void keyReleased(KeyEvent ke) {
+    }
 
 }
