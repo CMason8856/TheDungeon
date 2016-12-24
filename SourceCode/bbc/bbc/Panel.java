@@ -94,7 +94,10 @@ public class Panel extends JPanel {
      * @param m - the amount to change 'Y' by
      */
     public static void manipulateY(int m) {
-        y += m;
+        if(y+m < MAX_HEIGHT && y+m >= MIN_HEIGHT)
+        { y += m; }
+        else
+        { out.println("Out of Bounds"); }
     }
 
     /**
@@ -103,7 +106,10 @@ public class Panel extends JPanel {
      * @param m - the amount to change 'X' by
      */
     public static void manipulateX(int m) {
-        x += m;
+        if(x+m < MAX_WIDTH && x+m >= MIN_WIDTH)
+        { x += m; }
+        else
+        { out.println("Out of Bounds"); }
     }
 
     /**

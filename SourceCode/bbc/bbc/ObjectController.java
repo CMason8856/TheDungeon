@@ -6,11 +6,10 @@
 package bbc;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
 
 /**
  *
- * @author Bryce
+ * @author Bryce, Billeh
  */
 public class ObjectController {
 
