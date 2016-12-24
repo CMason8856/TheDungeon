@@ -33,6 +33,7 @@ public class ObjectController {
             for(int i = 1; i<=5; i++) {Wall(g,i,1,20,10+i,2,10); } 
             for(int i = 1; i<=5; i++) {Wall(g,5+i,1,10,1+i,2,0); } 
             for(int i = 1; i<=5; i++) {Wall(g,5+i,1,20,16-i,2,10); } 
+            Goal win = new Goal(g,10,180);
            
             initializedBoxes = "Initialized";
         }

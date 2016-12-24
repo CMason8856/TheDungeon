@@ -19,7 +19,7 @@ public class Box extends ObjectController {
     private final int BOX_WIDTH = 10;
     private final int x;
     private final int y;
-    private final String BOX_COLOR = "BLACK";
+    //private boolean isWin = false;
     ObjectController oc = ObjectController.getInstance();
     public static ArrayList<Box> Box = new ArrayList<>();
 
@@ -68,11 +68,20 @@ public class Box extends ObjectController {
         return this.BOX_WIDTH;
     }
     
-    public void redraw(Graphics g, int x, int y) { //to deal with the fuckton of box objects
+    public void redraw(Graphics g, int x, int y) { //to deal with the fuckton of box objects #funkyTown
         //this.x = x;
         //this.y = y;
+        Goal.redraw(g);
         g.setColor(Color.BLACK);
         g.drawRect(x, y, BOX_HEIGHT, BOX_WIDTH);
+    }
+    
+    public void isWin(Graphics g)
+    {
+        //this.isWin = true;
+        
+        g.setColor(Color.GREEN);
+        g.drawRect(this.x, this.y, BOX_HEIGHT, BOX_WIDTH);
     }
 
 }

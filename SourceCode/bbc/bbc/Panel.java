@@ -61,8 +61,17 @@ public class Panel extends JPanel {
     public void paint(Graphics g) {
         ObjectController.InitializeBoxes(g);
         g.setColor(Color.red);
-        g.drawRect(x + 1, y + 1, size - 1, size - 1);
+        g.drawRect(this.x, this.y, size - 1, size - 1);
     }
+    
+    /**
+     * So the win can match player cords with win cords
+     * @return the x/y value of the player
+     */
+    public static int getPlayerX()
+    {return x;}
+    public static int getPlayerY()
+    {return y;}
 
     /**
      * Controls for moving player with corresponding values and limitations
@@ -84,8 +93,8 @@ public class Panel extends JPanel {
             case KeyEvent.VK_D:
                 manipulateX(collisionDetection("e"));
                 break;
-
         }
+        Goal.winEvent(Goal.isWin()); //Checks if game is won or nah
     }
 
     /**
@@ -161,7 +170,7 @@ public class Panel extends JPanel {
             case "w": //A, WESTWARDS
                 for (int i = 0; i < size - 2; i++) {
                     frontLine[i][0] = x;
-                    frontLine[i][1] = y + i; //who thought it made sense in GUI's to make positive incrementation of Y go down?
+                    frontLine[i][1] = y + i; //who thought it made sense in GUI's to make positive incrementation of Y go down? - Gaben probably, he lives life on the edge
                 }
                 for (int a = 0; a < mi; a++) {
                     for (Box enemyOfTheFiefdom : Box.Box) { //checks to see if the new frontLine has crusaded into an enemy
