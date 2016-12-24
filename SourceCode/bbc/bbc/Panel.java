@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Bryce
+ * @author Bryce, Billeh
  */
 public class Panel extends JPanel {
 
@@ -61,7 +61,7 @@ public class Panel extends JPanel {
     public void paint(Graphics g) {
         ObjectController.InitializeBoxes(g);
         g.setColor(Color.red);
-        g.drawRect(x + 1, y + 1, size - 2, size - 2);
+        g.drawRect(x + 1, y + 1, size - 1, size - 1);
     }
 
     /**
