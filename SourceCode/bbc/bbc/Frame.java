@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 public class Frame extends JFrame implements KeyListener {
 
     private JPanel frame;
-    JPanel p = Panel.getCurrentPanel();
+    JPanel p = Controls.getCurrentPanel();
 
     public Frame() {
         super();
@@ -49,8 +49,9 @@ public class Frame extends JFrame implements KeyListener {
      *
      * @param ke - the current key event
      */
+    @Override
     public void keyPressed(KeyEvent ke) {
-        Panel.keyPressed(ke);
+        Controls.keyPressed(ke);
         repaint();
     }
 

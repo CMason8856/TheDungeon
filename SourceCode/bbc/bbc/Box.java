@@ -19,7 +19,6 @@ public class Box extends ObjectController {
     private final int BOX_WIDTH = 10;
     private final int x;
     private final int y;
-    //private boolean isWin = false;
     ObjectController oc = ObjectController.getInstance();
     public static ArrayList<Box> Box = new ArrayList<>();
 
