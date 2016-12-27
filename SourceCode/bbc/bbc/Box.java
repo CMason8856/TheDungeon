@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  Box is the main Object / building material []
  */
 package bbc;
 
@@ -11,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Bryce
+ * @author Bryce, Billy
  */
 public class Box extends ObjectController {
 
@@ -32,7 +30,7 @@ public class Box extends ObjectController {
     }
 
     /**
-     * Returns the x cord from this object
+     *      Returns the x cord from this object
      *
      * @return x - the x cord
      */
@@ -41,7 +39,7 @@ public class Box extends ObjectController {
     }
 
     /**
-     * Returns the y cord from this object
+     *      Returns the y cord from this object
      *
      * @return y - the y cord
      */
@@ -50,7 +48,7 @@ public class Box extends ObjectController {
     }
 
     /**
-     * Returns HEIGHT of this object
+     *      Returns HEIGHT of this object
      *
      * @return x - the x cord
      */
@@ -59,7 +57,7 @@ public class Box extends ObjectController {
     }
 
     /**
-     * Returns the WIDTH of this object
+     *      Returns the WIDTH of this object
      *
      * @return y - the y cord
      */
@@ -67,20 +65,15 @@ public class Box extends ObjectController {
         return this.BOX_WIDTH;
     }
     
+    /**
+     *      Deals with redrawing all them there box objects
+     * @param g - Graphics
+     * @param x - x value of object
+     * @param y - y value of object
+     */
     public void redraw(Graphics g, int x, int y) { //to deal with the fuckton of box objects #funkyTown
-        //this.x = x;
-        //this.y = y;
         Goal.redraw(g);
         g.setColor(Color.BLACK);
         g.drawRect(x, y, BOX_HEIGHT, BOX_WIDTH);
     }
-    
-    public void isWin(Graphics g)
-    {
-        //this.isWin = true;
-        
-        g.setColor(Color.GREEN);
-        g.drawRect(this.x, this.y, BOX_HEIGHT, BOX_WIDTH);
-    }
-
 }

@@ -15,6 +15,10 @@ public class ObjectController {
 
     public ObjectController(Graphics g, int x, int y) {}
 
+    /**
+     *      Returns the current ObjectController
+     * @return 
+     */
     public static ObjectController getInstance() {
         return oc;
     }

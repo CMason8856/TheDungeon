@@ -1,12 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *      The Object one needs to find to win the game
  */
 package bbc;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Scanner;
 
 /**
  *
@@ -27,7 +26,7 @@ public class Goal extends ObjectController{
     } 
     
     /**
-     *  Checks if the game is won
+     *      Checks if the game is won
      * @return bool value of if the game is won
      */
     public static boolean isWin()
@@ -38,7 +37,7 @@ public class Goal extends ObjectController{
     }
     
     /**
-     *  Keeps win in the redraw when updates occur
+     *      Keeps win in the redraw when updates occur
      * @param g 
      */
     public static void redraw(Graphics g)
@@ -48,12 +47,18 @@ public class Goal extends ObjectController{
     }
    
     /**
-     *  This does not need to be separate but it allows us more versatility in determining what happens after the game is won
-     * @param won 
+     *      This does not need to be separate but it allows us more versatility in determining what happens after the game is won
+     * @param won - if won
      */
     public static void winEvent(boolean won)
     {
-        if(won){System.out.println("You win!!"); 
-        System.exit(1); }
+        Scanner input = new Scanner(System.in);
+        if(won) {
+            System.out.println("You win!! -Type any key to exit"); 
+            AI_Player.isFinished();
+            if(input.next()!=null) {
+                System.exit(1);
+            }
+        }
     }
 }

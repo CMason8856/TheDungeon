@@ -10,23 +10,26 @@ import javax.swing.JPanel;
 import java.util.Scanner;
 /**
  *
- * @author Bryce
+ * @author Bryce, Billy
  */
 public class Controls {
     private final static int size = Panel.cloneSize();
     static int mi = Panel.mi; //Movement increment
     static ArrayList<ArrayList<Integer>> theFiefdom = new ArrayList<>(); //first dimension is x, second dimension is y, think the battleship proj and this is that String[][] thing
     Scanner input = new Scanner(System.in);
-    public Controls(KeyEvent ke)
-    { keyPressed(ke); }
+    
+    public Controls() {
+        int ke = KeyEvent.VK_K;
+        keyPressed(ke); 
+    }
     
     /**
-     * Controls for moving player with corresponding values and limitations
+     *      Controls for moving player with corresponding values and limitations
      *
      * @param ke - current key event
      */
-    static void keyPressed(KeyEvent ke) {
-        int i = ke.getKeyCode();
+    static void keyPressed(int ke) {
+        int i = ke;
         switch (i) {
             case KeyEvent.VK_W:
                 manipulateY(collisionDetection("n"));
@@ -38,15 +41,19 @@ public class Controls {
                 manipulateY(collisionDetection("s"));
                 break;
             case KeyEvent.VK_D:
-                //System.out.println(collisionDetection("e"));
                 manipulateX(collisionDetection("e"));
+                break;
+            //AI case
+            case KeyEvent.VK_K:
+                break;
+            default:
                 break;
         }
         Goal.winEvent(Goal.isWin()); //Checks if game is won or nah
     }
 
     /**
-     * Allows for manipulation of Y value
+     *      Allows for manipulation of Y value
      *
      * @param m - the amount to change 'Y' by
      */
@@ -58,7 +65,7 @@ public class Controls {
     }
 
     /**
-     * Allows for manipulation of X value
+     *      Allows for manipulation of X value
      *
      * @param m - the amount to change 'X' by
      */
@@ -70,7 +77,7 @@ public class Controls {
     }
 
     /**
-     * Updates the Fiefdom, enough said.
+     *      Updates the Fiefdom, enough said.
      */
     public void ruleTheFiefdom() {
         for (int x = 0; x <= Panel.MAX_WIDTH; x += mi) {
@@ -82,12 +89,12 @@ public class Controls {
     }
     
     /**
-     * Checks for the amount of spaces that can be moved before collision, with the max being the set movement increment
+     *      Checks for the amount of spaces that can be moved before collision, with the max being the set movement increment
      *
      * @param dir Specifies the direction to calculate movement for
      * @return the amount that can be traversed in the requested direction before collision
      */
-    private static int collisionDetection(String dir) { //Uses dir to find out which direction it applies movement increment for the return
+    public static int collisionDetection(String dir) { //Uses dir to find out which direction it applies movement increment for the return
                                                         //Also checks how far can be traversed in the requested direction before collisions
         
         //if I make it modify movement increment for evening up along the grid i'd change mi here according to X and Y position so that in the direction

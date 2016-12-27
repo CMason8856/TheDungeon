@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *      Holds the methods to construct parts of a map (walls and such)
  */
 package bbc;
 
@@ -12,6 +10,7 @@ import java.awt.Graphics;
  * @author Bryce
  */
 public class MapBuilder {
+    
     public MapBuilder()
     {}
     
@@ -23,7 +22,8 @@ public class MapBuilder {
      *              - VARIABLES ARE ALMOST ALL (EXCEPT LENGTH) MULTIPLED BY 10 FOR CONVIENCE, KEEP THIS IN MIND
      *                  -Also exits take up space going right from your ending block :P
      * 
-     *  Builds Trumps Walls all around the country
+     *      Builds Trumps Walls all around the country
+     * 
      * @param g - Graphics, its graphics
      * @param y - the Y value to start the wall at
      * @param size - size of the block
@@ -39,6 +39,25 @@ public class MapBuilder {
         { Box wall = new Box(g, t, y); }
         for( int t = door+size+doorsize; t<(length*size); t+=size )
         { Box wall = new Box(g, t, y); }
+    }
+    
+    /**
+     *      Makes vertical Columns
+     * @param g - Graphics
+     * @param startX - starting X value
+     * @param startY - starting Y value
+     * @param height - how high you want the column to go
+     */
+    protected static void Column(Graphics g, int startX, int startY, int height)
+    {
+        startX*=10; height*=10;
+        for(int i = startX; i<(height+startX); i+=10){
+            if(startY==0) {
+            new Box(g,startX, startY);
+            startY+=10;
+            }
+            else {new Box(g,startX, startY); startY+=10;}
+        }
     }
     
 }
